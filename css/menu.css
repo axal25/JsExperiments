@@ -1,0 +1,83 @@
+:root {
+  --menu-background-height: 100%;
+}
+
+body {
+  background-color: rgb(20, 20, 20);
+  color: gray;
+  margin: 0px;
+}
+
+#menu {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.menu-item {
+  color: white;
+  font-size: clamp(3rem, 8vw, 1rem);
+  font-family: "Ibarra Real Nova", serif;
+  display: block;
+  text-decoration: none;
+  padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+  transition: opacity 400ms ease;
+}
+
+#menu-items {
+  z-index: 2;
+  position: relative;
+  margin-left: clamp(4rem, 20vw, 48rem);
+}
+
+#menu-items:hover > .menu-item {
+  opacity: 0.3;
+}
+
+#menu-items:hover > .menu-item:hover {
+  opacity: 1;
+}
+
+#menu-background-pattern {
+  z-index: 1;
+  background-image: radial-gradient(
+    rgba(2225, 255, 255, 0.1) 9%,
+    transparent 9%
+  );
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-position: 0% 100%;
+  background-size: 12vmin 12vmin;
+  transition: opacity 800ms ease, background-size 800ms ease,
+    background-position 800ms ease;
+  background-position: 0% var(--menu-background-height);
+}
+
+#menu-items:hover ~ #menu-background-pattern {
+  background-size: 10vmin 10vmin;
+  opacity: 0.5;
+}
+
+#menu-background-image {
+  z-index: 0;
+  background-image: url("../img/math_abstract.webp");
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  opacity: 0.05;
+  height: 100%;
+  width: 100%;
+  background-size: 110vmax;
+  background-position: 0% 100%;
+  transition: opacity 800ms ease, background-size 800ms ease,
+    background-position 800ms ease;
+  background-position: 0% var(--menu-background-height);
+}
+
+#menu-items:hover ~ #menu-background-image {
+  background-size: 80vmax;
+  opacity: 0.1;
+}

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/content.css" />
+    <link rel="stylesheet" href="css/js-types.css" />
+    <title>JavaScript Basics</title>
+  </head>
+  <body>
+    <div id="menu">
+      <div id="menu-items">
+        <a href="./index.html" class="menu-item"> Index </a>
+        <a href="./ulamSpiral.html" class="menu-item"> Ulam Spiral </a>
+        <a href="./fibonacciSpiral.html" class="menu-item">
+          Fibonacci Spiral
+        </a>
+        <a href="./jsTypes.html" class="menu-item"> JavaScript Types </a>
+        <a href="./jsVarLetConst.html" class="menu-item">
+          JavaScript Var vs. Let vs. Const
+        </a>
+        <a href="./jsFunctions.html" class="menu-item">
+          JavaScript Functions - Anonymous, Self-invoking, Closure
+        </a>
+        <a href="https://www.youtube.com/watch?v=094y1Z2wpJg" class="menu-item"
+          >Collatz Conjecture (Odd: 3x + 1, Even: x/2) YouTube video</a
+        >
+        <a href="https://www.youtube.com/watch?v=NUeCNvYY_x4" class="menu-item">
+          Menu UI Design - Tutorial YouTube video
+        </a>
+        <a href="https://codepen.io/Hyperplexed/pen/bGvejNY" class="menu-item">
+          Menu UI Design - Source code
+        </a>
+      </div>
+      <div id="menu-background-pattern"></div>
+      <div id="menu-background-image"></div>
+    </div>
+    <div id="content">
+      <h1>JavaScript Basics</h1>
+    </div>
+    <div id="content-items">
+      <div class="in-out-block">
+        <span>? + ?</span>
+
+        <form id="form1" oninput="form1Output1OnInput()">
+          <input type="text" id="form1_input1" value="input1" />
+          +
+          <input type="text" id="form1_input2" value="input2" />
+          =
+          <output id="form1_output1" for="form1">not calculated</output>
+        </form>
+
+        <form id="form2" oninput="form2Output1OnInput()">
+          <input type="number" id="form2_input1" value="1" />
+          +
+          <input type="number" id="form2_input2" value="2" />
+          =
+          <output id="form2_output1" for="form2">not calculated</output>
+        </form>
+
+        <form id="form3" oninput="form3Output1OnInput()">
+          <input type="number" id="form3_input1" value="1.1" />
+          +
+          <input type="number" id="form3_input2" value="2.2" />
+          =
+          <output id="form3_output1" for="form3">not calculated</output>
+        </form>
+      </div>
+
+      <div class="in-out-block">
+        <span>null vs. null</span>
+        <form id="form4" oninput="form4Output1OnInput()">
+          <input type="text" id="form4_input1" value="null" />
+          ==
+          <input type="text" id="form4_input2" value="null" />
+          =>
+          <output id="form4_output1" for="form4">not calculated</output>
+          <br />
+          <label for="form4_input1_type">Input 1 type: </label>
+          <select id="form4_input1_type"></select>
+          <label for="form4_input2_type">Input 2 type: </label>
+          <select id="form4_input2_type"></select>
+        </form>
+
+        <form id="form5" oninput="form5Output1OnInput()">
+          <input type="text" id="form5_input1" value="null" />
+          ===
+          <input type="text" id="form5_input2" value="null" />
+          =>
+          <output id="form5_output1" for="form5">not calculated</output>
+          <br />
+          <label for="form5_input1_type">Input 1 type: </label>
+          <select id="form5_input1_type"></select>
+          <label for="form5_input2_type">Input 2 type: </label>
+          <select id="form5_input2_type"></select>
+        </form>
+      </div>
+
+      <div class="in-out-block">
+        <span>null vs. "null"</span>
+
+        <form id="form6" oninput="form6Output1OnInput()">
+          <input type="text" id="form6_input1" value="null" />
+          ==
+          <input type="text" id="form6_input2" value="null" />
+          =>
+          <output id="form6_output1" for="form6">not calculated</output>
+          <br />
+          <label for="form6_input1_type">Input 1 type: </label>
+          <select id="form6_input1_type"></select>
+          <label for="form6_input2_type">Input 2 type: </label>
+          <select id="form6_input2_type"></select>
+        </form>
+
+        <form id="form7" oninput="form7Output1OnInput()">
+          <input type="text" id="form7_input1" value="null" />
+          ===
+          <input type="text" id="form7_input2" value="null" />
+          =>
+          <output id="form7_output1" for="form7">not calculated</output>
+          <br />
+          <label for="form7_input1_type">Input 1 type: </label>
+          <select id="form7_input1_type"></select>
+          <label for="form7_input2_type">Input 2 type: </label>
+          <select id="form7_input2_type"></select>
+        </form>
+      </div>
+
+      <div class="in-out-block">
+        <span>null vs. undefined</span>
+
+        <form id="form8" oninput="form8Output1OnInput()">
+          <input type="text" id="form8_input1" value="null" />
+          ==
+          <input type="text" id="form8_input2" value="undefined" />
+          =>
+          <output id="form8_output1" for="form8">not calculated</output>
+          <br />
+          <label for="form8_input1_type">Input 1 type: </label>
+          <select id="form8_input1_type"></select>
+          <label for="form8_input2_type">Input 2 type: </label>
+          <select id="form8_input2_type"></select>
+        </form>
+
+        <form id="form9" oninput="form9Output1OnInput()">
+          <input type="text" id="form9_input1" value="null" />
+          ===
+          <input type="text" id="form9_input2" value="undefined" />
+          =>
+          <output id="form9_output1" for="form9">not calculated</output>
+          <br />
+          <label for="form9_input1_type">Input 1 type: </label>
+          <select id="form9_input1_type"></select>
+          <label for="form9_input2_type">Input 2 type: </label>
+          <select id="form9_input2_type"></select>
+        </form>
+      </div>
+
+      <div class="in-out-block">
+        <span>undefined vs. undefined</span>
+
+        <form id="form10" oninput="form10Output1OnInput()">
+          <input type="text" id="form10_input1" value="undefined" />
+          ==
+          <input type="text" id="form10_input2" value="undefined" />
+          =>
+          <output id="form10_output1" for="form10">not calculated</output>
+          <br />
+          <label for="form10_input1_type">Input 1 type: </label>
+          <select id="form10_input1_type"></select>
+          <label for="form10_input2_type">Input 2 type: </label>
+          <select id="form10_input2_type"></select>
+        </form>
+
+        <form id="form11" oninput="form11Output1OnInput()">
+          <input type="text" id="form11_input1" value="undefined" />
+          ===
+          <input type="text" id="form11_input2" value="undefined" />
+          =>
+          <output id="form11_output1" for="form11">not calculated</output>
+          <br />
+          <label for="form11_input1_type">Input 1 type: </label>
+          <select id="form11_input1_type"></select>
+          <label for="form11_input2_type">Input 2 type: </label>
+          <select id="form11_input2_type"></select>
+        </form>
+      </div>
+
+      <div class="in-out-block">
+        <span>NaN vs. NaN</span>
+
+        <form id="form12" oninput="form12Output1OnInput()">
+          <input type="text" id="form12_input1" value="NaN" />
+          ==
+          <input type="text" id="form12_input2" value="NaN" />
+          =>
+          <output id="form12_output1" for="form12">not calculated</output>
+          <br />
+          <label for="form12_input1_type">Input 1 type: </label>
+          <select id="form12_input1_type"></select>
+          <label for="form12_input2_type">Input 2 type: </label>
+          <select id="form12_input2_type"></select>
+        </form>
+
+        <form id="form13" oninput="form13Output1OnInput()">
+          <input type="text" id="form13_input1" value="NaN" />
+          ===
+          <input type="text" id="form13_input2" value="NaN" />
+          =>
+          <output id="form13_output1" for="form13">not calculated</output>
+          <br />
+          <label for="form13_input1_type">Input 1 type: </label>
+          <select id="form13_input1_type"></select>
+          <label for="form13_input2_type">Input 2 type: </label>
+          <select id="form13_input2_type"></select>
+        </form>
+      </div>
+
+      <div class="in-out-block">
+        <span>Number vs. String</span>
+
+        <form id="form14" oninput="form14Output1OnInput()">
+          <input type="text" id="form14_input1" value="14" />
+          ==
+          <input type="text" id="form14_input2" value="14" />
+          =>
+          <output id="form14_output1" for="form14">not calculated</output>
+          <br />
+          <label for="form14_input1_type">Input 1 type: </label>
+          <select id="form14_input1_type"></select>
+          <label for="form14_input2_type">Input 2 type: </label>
+          <select id="form14_input2_type"></select>
+        </form>
+
+        <form id="form15" oninput="form15Output1OnInput()">
+          <input type="text" id="form15_input1" value="15" />
+          ===
+          <input type="text" id="form15_input2" value="15" />
+          =>
+          <output id="form15_output1" for="form15">not calculated</output>
+          <br />
+          <label for="form15_input1_type">Input 1 type: </label>
+          <select id="form15_input1_type"></select>
+          <label for="form15_input2_type">Input 2 type: </label>
+          <select id="form15_input2_type"></select>
+        </form>
+      </div>
+
+      <div class="in-out-block">
+        <span>Symbol vs. Symbol</span>
+
+        <form id="form16" oninput="form16Output1OnInput()">
+          <input type="text" id="form16_input1" value="16" />
+          ==
+          <input type="text" id="form16_input2" value="16" />
+          =>
+          <output id="form16_output1" for="form16">not calculated</output>
+          <br />
+          <label for="form16_input1_type">Input 1 type: </label>
+          <select id="form16_input1_type"></select>
+          <label for="form16_input2_type">Input 2 type: </label>
+          <select id="form16_input2_type"></select>
+        </form>
+
+        <form id="form17" oninput="form17Output1OnInput()">
+          <input type="text" id="form17_input1" value="17" />
+          ===
+          <input type="text" id="form17_input2" value="17" />
+          =>
+          <output id="form17_output1" for="form17">not calculated</output>
+          <br />
+          <label for="form17_input1_type">Input 1 type: </label>
+          <select id="form17_input1_type"></select>
+          <label for="form17_input2_type">Input 2 type: </label>
+          <select id="form17_input2_type"></select>
+        </form>
+      </div>
+    </div>
+    <script src="js/menuItemOnMouseOver.js"></script>
+    <script src="js/jsTypes.js"></script>
+  </body>
+</html>

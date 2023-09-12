@@ -1,0 +1,27 @@
+.in-out-block {
+  color: white;
+  border-radius: 5px;
+  border-style: ridge;
+  border-width: 2px;
+  border-color: white;
+  margin: 5px 0 5px 0;
+}
+
+.in-out-block > span {
+  margin-left: 15px;
+}
+
+.in-out-block > form {
+  padding: 2px 2px 2px 2px;
+  margin: 2px 0 2px 0;
+  border-radius: 5px;
+  border-style: ridge;
+  border-width: 2px;
+  border-color: gray;
+}
+
+.in-out-block > form > output {
+  color: black;
+  background-color: white;
+  padding: 0 5px 0 5px;
+}

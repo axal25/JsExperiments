@@ -1,0 +1,22 @@
+#content {
+  z-index: 3;
+  position: absolute;
+  left: 0px;
+  top: 10%;
+  height: auto;
+  color: rgb(235, 235, 235);
+  font-family: "Ibarra Real Nova", serif;
+  margin-left: clamp(4rem, 10vw, 48rem);
+}
+
+#content > h1 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+#content-items {
+  position: relative;
+  margin-left: clamp(4rem, 10vw, 48rem);
+  width: 60%;
+  bottom: 0;
+}

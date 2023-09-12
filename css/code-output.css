@@ -1,0 +1,53 @@
+.code-output {
+  color: white;
+  border-radius: 5px;
+  border-style: ridge;
+  border-width: 2px;
+  border-color: white;
+  margin: 5px 0 5px 0;
+}
+
+.code-output > h4,
+h5,
+h6 {
+  color: gray;
+  margin-bottom: 0;
+}
+
+.code-output > h5,
+h6 {
+  margin-block-start: 0.5em;
+}
+
+.code-output > p {
+  border-radius: 5px;
+  border-style: ridge;
+  border-width: 2px;
+  border-color: gray;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+}
+
+.code-comment {
+  color: forestgreen;
+  font-size: 14px;
+}
+
+.code-string {
+  color: darkorange;
+}
+
+.code-function-var-let-const {
+  color: slateblue;
+  font-weight: bold;
+}
+
+.code-return {
+  color: #9932cc;
+  font-weight: bold;
+}
+
+.code-bracket {
+  color: orange;
+  font-weight: bold;
+}

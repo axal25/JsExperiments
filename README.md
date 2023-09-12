@@ -2,4 +2,5 @@
 
 JavaScript project containing combination of multiple learning opportunities
 
-[Index](./index.html)
+[Index - GitHub Pages](https://axal25.github.io/JsExperiments/)
+[Index - file](./index.html)

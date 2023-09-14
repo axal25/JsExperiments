@@ -119,7 +119,7 @@ var aVarOverwritten = "global_scope_value"; // var which value will be overwritt
 
   const functionScope = () => {
     // update/overwriting (value update, same (global) instance)
-    aVarOverwritten = "function_scope_value"; // overwriting var which initial value was set in global scope
+    aVarOverwritten = "function_scope_value"; // overwriting var which initial value was set in global scope, also replaces global scope value
 
     return "aVarOverwritten - from function scope: " + aVarOverwritten;
   };
@@ -128,13 +128,13 @@ var aVarOverwritten = "global_scope_value"; // var which value will be overwritt
     functionScope() +
     ", \n" +
     "aVarOverwritten - from global scope: " +
-    aVarOverwritten
+    aVarOverwritten // also here aVarOverwritten has value overwritten in lower scope
   );
   `,
   (() => {
     const functionScope = () => {
       // update/overwriting (value update, same (global) instance)
-      aVarOverwritten = "function_scope_value"; // overwriting var which initial value was set in global scope
+      aVarOverwritten = "function_scope_value"; // overwriting var which initial value was set in global scope, also replaces global scope value
 
       return "aVarOverwritten - from function scope: " + aVarOverwritten;
     };
@@ -143,7 +143,7 @@ var aVarOverwritten = "global_scope_value"; // var which value will be overwritt
       functionScope() +
       ", \n" +
       "aVarOverwritten - from global scope: " +
-      aVarOverwritten
+      aVarOverwritten // also here aVarOverwritten has value overwritten in lower scope
     );
   })()
 );
@@ -155,9 +155,9 @@ createCodeOutput(
   // hoisting
   // aVarHoisted variable is not even declared yet
   // declaration of var variable is moved to top of the scope
-  // initialization stays at same spot
-  var aVarHoistedReference = aVarHoisted; // aVarHoisted is not initialized yet
-  var aVarHoisted = "function_scope_value";
+  // initialization (to expected value) stays at same spot
+  var aVarHoistedReference = aVarHoisted; // aVarHoisted is not initialized to correct value yet, it's initialized to undefined
+  var aVarHoisted = "value";
 
   return (
     "aVarHoistedReference: " +
@@ -171,9 +171,9 @@ createCodeOutput(
     // hoisting
     // aVarHoisted variable is not even declared yet
     // declaration of var variable is moved to top of the scope
-    // initialization stays at same spot
-    var aVarHoistedReference = aVarHoisted; // aVarHoisted is not initialized yet
-    var aVarHoisted = "function_scope_value";
+    // initialization (to expected value) stays at same spot
+    var aVarHoistedReference = aVarHoisted; // aVarHoisted is not initialized to correct value yet, it's initialized to undefined
+    var aVarHoisted = "value";
 
     return (
       "aVarHoistedReference: " +
@@ -182,5 +182,88 @@ createCodeOutput(
       "aVarHoisted: " +
       aVarHoisted
     );
+  })()
+);
+
+createCodeOutput(
+  "codeOutput5",
+  "VAR - scope (without hoisting)",
+  `
+  // higher scope
+  var aVar = "higher_scope_value"; // higher scope variable
+  const lowerScopeFunction = () => {
+    // lower scope
+    var aVarReference = aVar; // aVar from higher scope is already declared and initiated, no hoisting involved
+    return (
+      "aVarReference from lower scope: " +
+      aVarReference +
+      ", \n" +
+      "aVar from lower scope: " +
+      aVar
+    );
+  };
+
+  return "aVar from higher scope: " + aVar + ", \n" + lowerScopeFunction();
+  `,
+  (() => {
+    // higher scope
+    var aVar = "higher_scope_value"; // higher scope variable
+    const lowerScopeFunction = () => {
+      // lower scope
+      var aVarReference = aVar; // aVar from higher scope is already declared and initiated, no hoisting involved
+      return (
+        "aVarReference from lower scope: " +
+        aVarReference +
+        ", \n" +
+        "aVar from lower scope: " +
+        aVar
+      );
+    };
+
+    return "aVar from higher scope: " + aVar + ", \n" + lowerScopeFunction();
+  })()
+);
+
+createCodeOutput(
+  "codeOutput6",
+  "VAR - hoisting + scope",
+  `
+  (() => {
+    // higher scope
+    var aVar = "higher_scope_value"; // higher scope variable
+    const lowerScopeFunction = () => {
+      // lower scope
+      // hoisting - aVar is declared before being used, hides aVar from higher scope
+      var aVarReference = aVar; // aVar is not initiated yet
+      var aVar = "lower_scope_value"; // lower scope variable
+      return (
+        "aVarReference from lower scope: " +
+        aVarReference +
+        ", \n" +
+        "aVar from lower scope: " +
+        aVar
+      );
+    };
+
+    return "aVar from higher scope: " + aVar + ", \n" + lowerScopeFunction();
+  `,
+  (() => {
+    // higher scope
+    var aVar = "higher_scope_value"; // higher scope variable
+    const lowerScopeFunction = () => {
+      // lower scope
+      // hoisting - aVar is declared before being used, hides aVar from higher scope
+      var aVarReference = aVar; // aVar is not initiated yet
+      var aVar = "lower_scope_value"; // lower scope variable
+      return (
+        "aVarReference from lower scope: " +
+        aVarReference +
+        ", \n" +
+        "aVar from lower scope: " +
+        aVar
+      );
+    };
+
+    return "aVar from higher scope: " + aVar + ", \n" + lowerScopeFunction();
   })()
 );
